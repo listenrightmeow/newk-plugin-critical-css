@@ -1,5 +1,5 @@
 {
-  "name": "@listenrightmeow/newk-plugin-critical-css",
+  "name": "@listenrightmeeow/newk-plugin-critical-css",
   "version": "1.0.0",
   "description": "Intelligent critical CSS extraction and inlining for instant page renders",
   "type": "module",
@@ -27,7 +27,7 @@
     "css-inlining",
     "pagespeed"
   ],
-  "author": "@listenrightmeow",
+  "author": "@listenrightmeeow",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -54,5 +54,8 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
