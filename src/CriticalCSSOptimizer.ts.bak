@@ -1,6 +1,6 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
-import { OptimizationPlugin, OptimizationContext, OptimizationResult } from './types';
+import { OptimizationPlugin, OptimizationContext, OptimizationResult } from '@listenrightmeow/replrod/plugin/OptimizationPlugin';
 // import critical from 'critical';
 
 export class CriticalCSSOptimizer implements OptimizationPlugin {
@@ -9,14 +9,10 @@ export class CriticalCSSOptimizer implements OptimizationPlugin {
   category = 'performance' as const;
   priority = 7; // High priority - runs after image optimization
 
-  async apply(context: OptimizationContext): Promise<OptimizationResult> {
-    return this.optimize(context);
-  }
-
   async isApplicable(context: OptimizationContext): Promise<boolean> {
     // Check if project has HTML files and CSS
     const indexHtmlPath = path.join(context.projectPath, 'client', 'index.html');
-    const distIndexPath = path.join(context.projectPath, 'dist', 'index.html');
+    const distIndexPath = path.join(context.buildPath || context.projectPath, 'index.html');
     
     try {
       await fs.access(indexHtmlPath);
@@ -98,7 +94,7 @@ header {
       return {
         success: true,
         message: 'Critical CSS file created successfully',
-        details: {
+        metrics: {
           improvement: '60-70% faster initial render',
           timeBefore: startTime,
           timeAfter: endTime
@@ -114,7 +110,7 @@ header {
 
   async validate(context: OptimizationContext): Promise<boolean> {
     try {
-      const buildPath = path.join(context.projectPath, 'dist');
+      const buildPath = context.buildPath || path.join(context.projectPath, 'dist');
       const indexPath = path.join(buildPath, 'index.html');
       const html = await fs.readFile(indexPath, 'utf-8');
       
@@ -128,7 +124,7 @@ header {
   async cleanup(_context: OptimizationContext): Promise<void> {
     // Remove temporary files if needed
     try {
-      const buildPath = path.join(_context.projectPath, 'dist');
+      const buildPath = _context.buildPath || path.join(_context.projectPath, 'dist');
       const criticalCssPath = path.join(buildPath, 'critical.css');
       await fs.unlink(criticalCssPath);
     } catch {

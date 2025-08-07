@@ -1,9 +1,9 @@
-import { ReplrodOptimizationPlugin } from './types';
+import { ReplrodOptimizationPlugin } from '@listenrightmeow/replrod/plugin/OptimizationPlugin';
 import { CriticalCSSOptimizer } from './CriticalCSSOptimizer.js';
 
 const plugin: ReplrodOptimizationPlugin = {
   metadata: {
-    name: '@listenrightmeow/newk-plugin-critical-css',
+    name: '@listenrightmeow/replrod-plugin-critical-css',
     version: '1.0.0',
     description: 'Critical CSS inlining optimization for replrod',
     author: '@listenrightmeow',

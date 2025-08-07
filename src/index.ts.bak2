@@ -1,4 +1,4 @@
-import { ReplrodOptimizationPlugin } from './types';
+import { ReplrodOptimizationPlugin } from '@listenrightmeow/newk/plugin/OptimizationPlugin';
 import { CriticalCSSOptimizer } from './CriticalCSSOptimizer.js';
 
 const plugin: ReplrodOptimizationPlugin = {
