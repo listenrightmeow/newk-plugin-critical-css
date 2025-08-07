@@ -1,6 +1,6 @@
 {
   "name": "@listenrightmeeow/newk-plugin-critical-css",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Intelligent critical CSS extraction and inlining for instant page renders",
   "type": "module",
   "main": "dist/index.js",

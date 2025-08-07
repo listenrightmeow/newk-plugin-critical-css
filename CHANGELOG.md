@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/listenrightmeow/newk-plugin-critical-css/compare/v1.0.0...v1.0.1) (2025-08-07)
+
+
+### Bug Fixes
+
+* correct NPM scope to [@listenrightmeeow](https://github.com/listenrightmeeow) and add public access ([482fac6](https://github.com/listenrightmeow/newk-plugin-critical-css/commit/482fac6e0f16dbac7c025822dfe168862ef417cf))
+
 # 1.0.0 (2025-08-07)
 
 
